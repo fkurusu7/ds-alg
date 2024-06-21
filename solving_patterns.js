@@ -107,6 +107,6 @@ function lovefunc(flower1, flower2) {
   return flower1 % 2 !== flower2 % 2;
 }
 
-console.log(lovefunc(3, 4));
-console.log(lovefunc(4, 4));
-console.log(lovefunc(3, 9));
+console.log(lovefunc(3, 4), " It should return TRUE");
+console.log(lovefunc(4, 4), " It should return FALSE");
+console.log(lovefunc(3, 9), " It should return FALSE");
