@@ -94,9 +94,6 @@ console.log(charCount("rami%ro"));
 console.log(charCount("sEbAStian"));
 console.log(charCount("pablo olbap song"));
 console.log(charCount("pablo $"));
-/**************************************** */
-// Blueprints, archetypes, little strategies
-/**************************************** */
 
 function lovefunc(flower1, flower2) {
   /* const foe1 = flower1 % 2 === 0;
@@ -110,3 +107,78 @@ function lovefunc(flower1, flower2) {
 console.log(lovefunc(3, 4), " It should return TRUE");
 console.log(lovefunc(4, 4), " It should return FALSE");
 console.log(lovefunc(3, 9), " It should return FALSE");
+
+/**************************************** */
+// Blueprints, archetypes, little strategies
+// FREQUENCY COUNTER
+// MULTIPLE POINTERS
+// SLIDING WINDOW
+// DIVIDE AND CONQUER
+// DYNAMIC PROGRAMMING
+// GREEDY ALGORITHMS
+// BACKTRACKING
+/**************************************** */
+
+// ∞∞∞∞∞∞∞∞ FREQUENCY COUNTER ∞∞∞∞∞∞∞∞
+console.log("∞∞∞∞∞∞∞∞ FREQUENCY COUNTER ∞∞∞∞∞∞∞∞");
+console.log(
+  "*** It uses objects or sets to collect values/frequencies of values."
+);
+console.log(
+  "*** This can often avoid the need for nested loops or O(N^2) operations with Arrays/Strings."
+);
+console.log("\n");
+console.log("EXAMPLE:\n");
+console.log(`Write a function called same, which accepts two arrays. 
+  The function should return true if every value in the array has it's corresponding value squared in the second array.
+  The frecuency of values must be the same.
+  same([1,2,3], [4,1,9]) ==> TRUE
+  same([1,2,3], [1,9]) ==> FALSE
+  same([1,2,1], [4,4,1]) ==> FALSE (must be the same frecuency)
+  `);
+
+function same_naive(arr1, arr2) {
+  if (arr1.length !== arr2.length) return false;
+
+  for (let i = 0; i < arr1.length; i++) {
+    let correctIndex = arr2.indexOf(arr1[i] ** 2);
+    if (correctIndex === -1) return false;
+
+    arr2.splice(correctIndex, 1);
+  }
+
+  return true;
+}
+
+// Big O()   =====>   O(n^2) ---> like a million ops
+console.log(same_naive([1, 2, 3, 2], [9, 1, 4, 4])); // returns true
+console.log(same_naive([1, 2, 3, 2], [7, 1, 4, 4])); // returns false
+console.log(same_naive([2, 3, 2], [9, 1, 4, 4])); // returns false
+
+function same_refactored(arr1, arr2) {
+  if (arr1.length !== arr2.length) return false;
+
+  // Frequency Objects
+  let frequencyCounter1 = {};
+  let frequencyCounter2 = {};
+
+  // Loop each array for number frequency { arrayValue: valuePresentTimes }
+  for (let value of arr1) {
+    console.log((frequencyCounter1[value] || 0) + 1);
+    frequencyCounter1[value] = (frequencyCounter1[value] || 0) + 1;
+  }
+  console.log(frequencyCounter1);
+
+  // Compare values in each object
+}
+
+console.log(same_refactored([1, 2, 3, 2], [9, 1, 4, 4])); // returns true
+console.log(same_refactored([1, 2, 3, 2, 5], [9, 1, 4, 4, 11])); // returns false
+console.log(same_refactored([2, 3, 2], [9, 1, 4, 4])); // returns false
+
+// ∞∞∞∞∞∞∞∞ MULTIPLE POINTERS ∞∞∞∞∞∞∞∞
+// ∞∞∞∞∞∞∞∞ SLIDING WINDOW ∞∞∞∞∞∞∞∞
+// ∞∞∞∞∞∞∞∞ DIVIDE AND CONQUER ∞∞∞∞∞∞∞∞
+// ∞∞∞∞∞∞∞∞ DYNAMIC PROGRAMMING ∞∞∞∞∞∞∞∞
+// ∞∞∞∞∞∞∞∞ GREEDY ALGORITHMS ∞∞∞∞∞∞∞∞
+// ∞∞∞∞∞∞∞∞ BACKTRACKING ∞∞∞∞∞∞∞∞
