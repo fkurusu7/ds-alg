@@ -150,11 +150,12 @@ function same_naive(arr1, arr2) {
   return true;
 }
 
-// Big O()   =====>   O(n^2) ---> like a million ops
+// Big O()   =====>   O(n^2) QUADRATIC ---> like a million ops if each array ihas 1000 elements
 console.log(same_naive([1, 2, 3, 2], [9, 1, 4, 4])); // returns true
 console.log(same_naive([1, 2, 3, 2], [7, 1, 4, 4])); // returns false
 console.log(same_naive([2, 3, 2], [9, 1, 4, 4])); // returns false
 
+// BIG O() ===> O(n) LINEAL    (2 loops betters than nested loops)
 function same_refactored(arr1, arr2) {
   if (arr1.length !== arr2.length) return false;
 
@@ -164,21 +165,92 @@ function same_refactored(arr1, arr2) {
 
   // Loop each array for number frequency { arrayValue: valuePresentTimes }
   for (let value of arr1) {
-    console.log((frequencyCounter1[value] || 0) + 1);
     frequencyCounter1[value] = (frequencyCounter1[value] || 0) + 1;
   }
+
+  for (let value of arr2) {
+    frequencyCounter2[value] = (frequencyCounter2[value] || 0) + 1;
+  }
+
   console.log(frequencyCounter1);
+  console.log(frequencyCounter2);
 
   // Compare values in each object
+  for (const key in frequencyCounter1) {
+    if (!(key ** 2 in frequencyCounter2)) {
+      return false;
+    }
+    if (frequencyCounter2[key ** 2] !== frequencyCounter1[key]) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 console.log(same_refactored([1, 2, 3, 2], [9, 1, 4, 4])); // returns true
 console.log(same_refactored([1, 2, 3, 2, 5], [9, 1, 4, 4, 11])); // returns false
 console.log(same_refactored([2, 3, 2], [9, 1, 4, 4])); // returns false
 
+console.log(`Given two strings, write a function to determine if the second string
+  is an anagram of the first. An anagram is a word, phrase, or name 
+  formed by rearrenging the letters of another,
+  such as cinema, formed from iceman.`);
+
+function validAnagram(strNgrm1, strNgrm2) {
+  // frequency objects
+  const ngrmObj1 = {};
+  const ngrmObj2 = {};
+
+  // Loop thorugh each letters in the strings, two loops
+  for (let letter of strNgrm1) {
+    console.log(letter);
+    ngrmObj1[letter] = (ngrmObj1[letter] || 0) + 1;
+  }
+
+  for (let letter of strNgrm2) {
+    ngrmObj2[letter] = (ngrmObj2[letter] || 0) + 1;
+  }
+  console.log(ngrmObj1);
+  console.log(ngrmObj2);
+
+  // Compare values in each object
+  for (let key in ngrmObj1) {
+    if (!(key in ngrmObj2)) return false;
+    if (ngrmObj1[key] !== ngrmObj2[key]) return false;
+  }
+
+  return true;
+}
+
+console.log(validAnagram("aaz", "zza"));
+console.log(validAnagram("zadz", "zzad"));
+console.log(validAnagram("icemannn", "ncinenma"));
+console.log(validAnagram("anagram", "nagaram"));
 // ∞∞∞∞∞∞∞∞ MULTIPLE POINTERS ∞∞∞∞∞∞∞∞
 // ∞∞∞∞∞∞∞∞ SLIDING WINDOW ∞∞∞∞∞∞∞∞
 // ∞∞∞∞∞∞∞∞ DIVIDE AND CONQUER ∞∞∞∞∞∞∞∞
 // ∞∞∞∞∞∞∞∞ DYNAMIC PROGRAMMING ∞∞∞∞∞∞∞∞
 // ∞∞∞∞∞∞∞∞ GREEDY ALGORITHMS ∞∞∞∞∞∞∞∞
 // ∞∞∞∞∞∞∞∞ BACKTRACKING ∞∞∞∞∞∞∞∞
+
+function summation(num) {
+  const arr = Array.from({ length: num }, (_, i) => i + 1).reduce(
+    (curr, acc) => curr + acc
+  );
+  console.log(arr);
+  return arr;
+}
+
+console.log(summation(4));
+console.log(summation(40));
+
+function sumArray(arr) {
+  return arr
+    .filter((_, i, arry) => i !== arry.indexOf(Math.min(...arry)))
+    .filter((_, i, arry) => i !== arry.indexOf(Math.max(...arry)))
+    .reduce((acc, curr) => acc + curr);
+}
+
+console.log("Must be 3: ", sumArray([-6, 20, -1, 10, -12]));
+console.log("Must be 16: ", sumArray([6, 2, 1, 8, 10]));
