@@ -88,9 +88,9 @@ console.log(`A Narcissistic Number (or Armstrong Number) is a positive number
     and 1652 (4 digits), which isn't:
     1^4 + 6^4 + 5^4 + 2^4 = 1 + 1296 + 625 + 16 = 1938
 `);
-function narcissistic(value) {
+function narcissistic(number) {
   // Code me to return true or false
-  const ARR_VALUE = value.toString().split("");
+  const ARR_VALUE = number.toString().split("");
   const POWER = ARR_VALUE.length;
   const IS_NARCI = Number(
     ARR_VALUE.map((n) => Number(n) ** POWER).reduce(
@@ -98,9 +98,44 @@ function narcissistic(value) {
       0
     )
   );
-  return IS_NARCI === value;
+  return IS_NARCI === number;
 }
 
 console.log(narcissistic(153));
 console.log(narcissistic(1652));
 console.log(narcissistic(1234567890098765432));
+
+/* 
+Complete the solution so that it splits the string 
+into pairs of two characters. If the string contains 
+an odd number of characters then it should replace 
+the missing second character of the final pair 
+with an underscore ('_').
+
+Exmaple:
+'abc'    =>  ['ab', 'c_']
+'abcdef' => ['ab', 'cd', 'ef']
+*/
+
+function splitStringinPairs(str) {
+  // const result = [];
+
+  // const splitStr = str.split("");
+
+  // if (splitStr.length % 2 !== 0) {
+  //   splitStr.push("_");
+  // }
+  // str = splitStr.join("");
+  // for (let i = 0; i < splitStr.length; i += 2) {
+  //   result.push(str.substring(i, i + 2));
+  // }
+  // return result;
+
+  return (str + "_").match(/.{2}/g) || [];
+}
+
+console.log(splitStringinPairs(""));
+console.log(splitStringinPairs("abc"));
+// abc abc_ ["ab", "c_"]
+// abcd abcd_ ["ab", "cd"]
+console.log(splitStringinPairs("abcd"));
