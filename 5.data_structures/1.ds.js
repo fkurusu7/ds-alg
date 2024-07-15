@@ -28,6 +28,10 @@ console.log(`-- Static methods are called without instantiating
     their class and cannot be called through a class instance.
     And they are often used to create utility functions for an app.`);
 
+console.log("-- THIS ---");
+console.log(`-- Inside of all instance methods and constructor,
+  the keywordTHIS refers to the object created from that class (instance).`);
+
 console.log("****** Implement DS as CLASSES!!!");
 
 console.log("*****************************************");
