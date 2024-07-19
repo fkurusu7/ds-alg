@@ -41,10 +41,10 @@ class SinglyLinkedList {
   - Otherwise set the next property on the tail to be the new node 
   and set the tail property on the list to be the newly created one.
   - Increment the length by one
+  - Return the list with 'this'
   */
   push(val) {
     const newNode = new Node(val);
-    console.log(newNode);
     if (!this.head) {
       this.head = newNode;
       this.tail = this.head;
@@ -52,27 +52,61 @@ class SinglyLinkedList {
       this.tail.next = newNode;
       this.tail = newNode;
     }
-
     this.length++;
     return this;
   }
-}
 
-var list = new SinglyLinkedList();
-list.push(3);
-console.log(list);
-list.push(5);
-console.log(list);
-list.push(1);
-console.log(list);
-list.push(10);
-console.log(list);
-
-/* PSEUDOCODE for POP (removing)
+  /* PSEUDOCODE for POP (removing)
     - If there are no nodes in the list, return undefined
     - Loop through the list until you reach the tail
     - Set the next property of the 2nd to last node to be null
     - Set the tail to be the 2nd to last node
     - Decrement the length of the list by 1
     - Return the value of the node removed
+    * Special Case
+    - If there is one item in the List set Head and Tail to null
   */
+  pop() {
+    if ((!this.head || !this.tail) && this.length <= 0) return undefined;
+
+    let current = this.head;
+    let newTail = current;
+
+    while (current.next) {
+      newTail = current;
+      current = current.next;
+    }
+
+    this.tail = newTail;
+    this.tail.next = null;
+    this.length--;
+
+    if (this.length <= 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return current;
+  }
+}
+
+const listPush = new SinglyLinkedList();
+listPush.push(3);
+console.log(listPush);
+listPush.push(5);
+console.log(listPush);
+listPush.push(1);
+console.log(listPush);
+listPush.push(10);
+console.log(listPush);
+
+const listPop = new SinglyLinkedList();
+console.log(listPop.pop());
+console.log(listPush.pop());
+console.log(listPush);
+console.log(listPush.pop());
+console.log(listPush);
+console.log(listPush.pop());
+console.log(listPush);
+console.log(listPush.pop());
+console.log(listPush);
+console.log(listPush.pop());
