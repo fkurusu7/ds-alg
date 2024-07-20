@@ -87,6 +87,39 @@ class SinglyLinkedList {
     }
     return current;
   }
+
+  /* PSEUDOCODE for SHIFTING (removing from the beginning)
+    - If there are no nodes, return undeifined
+    - Store the current head property in a variable
+    - Set the head property to be the current head's next property
+    - Decrement the length by 1
+    - Return the value of the node removed
+    * Special Case
+    - 
+  */
+  shift() {
+    if (!this.head) return undefined;
+    const oldHead = this.head;
+    this.head = this.head.next;
+    this.length--;
+    if (this.length === 0) this.tail = null;
+    return oldHead;
+  }
+
+  /** Adding to the beginning */
+  unshift(val) {
+    const newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      const oldHead = this.head;
+      this.head = newNode;
+      this.head.next = oldHead;
+    }
+    this.length++;
+    return this;
+  }
 }
 
 const listPush = new SinglyLinkedList();
@@ -103,10 +136,17 @@ const listPop = new SinglyLinkedList();
 console.log(listPop.pop());
 console.log(listPush.pop());
 console.log(listPush);
-console.log(listPush.pop());
+// console.log(listPush.pop());
+// console.log(listPush);
+// console.log(listPush.pop());
+// console.log(listPush);
+// console.log(listPush.pop());
+// console.log(listPush);
+// console.log(listPush.pop());
+
 console.log(listPush);
-console.log(listPush.pop());
+console.log(listPush.shift());
 console.log(listPush);
-console.log(listPush.pop());
-console.log(listPush);
-console.log(listPush.pop());
+
+console.log(listPush.unshift(99));
+console.log(listPush.unshift("ONE"));
