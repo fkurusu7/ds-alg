@@ -76,3 +76,11 @@ function testValidParenthesesEasy() {
   console.log("********************** END **********************");
 }
 testValidParenthesesEasy();
+
+console.log(`Design an algorithm to encode a list of strings
+  to a single string. The encoded string is then decoded back
+  to the original list of strings
+  Implement 'encode' and 'decode'`);
+
+function encode(strings) {}
+function decode(strings) {}
