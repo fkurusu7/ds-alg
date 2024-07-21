@@ -2,7 +2,7 @@ console.log("****************************************");
 console.log("********** SINGLY LINKED LIST **********");
 console.log("****************************************");
 
-console.log(`*** It is  a DSthat contains:
+console.log(`*** It is  a DS that contains:
   - a HEAD
   - a Tail
   - and LENGTH properties`);
@@ -106,7 +106,7 @@ class SinglyLinkedList {
     return oldHead;
   }
 
-  /** Adding to the beginning */
+  /** PSEUDOCODE Adding to the beginning */
   unshift(val) {
     const newNode = new Node(val);
     if (!this.head) {
@@ -119,6 +119,24 @@ class SinglyLinkedList {
     }
     this.length++;
     return this;
+  }
+
+  /** PSEUDOCODE for GETTING based on an "index" ("index" 0-based)
+    - This function should accept an index
+    - if the index is less than zero or greater than 
+      or equal to the length of the list, return null
+    - Loop through the list until you reach the index and 
+      return the node at the specific index
+  */
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    let counter = 0;
+    let current = this.head;
+    while (counter !== index) {
+      current = current.next;
+      counter++;
+    }
+    return current;
   }
 }
 
@@ -150,3 +168,6 @@ console.log(listPush);
 
 console.log(listPush.unshift(99));
 console.log(listPush.unshift("ONE"));
+
+console.log(listPush);
+console.log(listPush.get(3));
