@@ -79,8 +79,60 @@ testValidParenthesesEasy();
 
 console.log(`Design an algorithm to encode a list of strings
   to a single string. The encoded string is then decoded back
-  to the original list of strings
+  to the original list of strings.
   Implement 'encode' and 'decode'`);
 
-function encode(strings) {}
-function decode(strings) {}
+/* PSEUDOCODE:
+    - Take the length of each string, add it to the string
+    - add the pound sign after the number
+    - then add the string 
+    - Return a list of the concatenated string  */
+function encode(listStr) {
+  console.log(listStr);
+  let encodedList = "";
+  for (const str of listStr) {
+    const LENGTH = str.length;
+    const POUND_SIGN = "#";
+
+    encodedList += `${LENGTH}${POUND_SIGN}${str}`;
+  }
+  return encodedList;
+}
+
+/*  Read the number up until the special character, 
+    the numbers will tell how many characters to read 
+    after the pound character read each string, 
+    then build the list of strings  */
+function decode(encodedList) {
+  const decodedList = [];
+  let i = 0;
+  while (i < encodedList.length) {
+    let j = i;
+    while (encodedList[j] !== "#") {
+      j++;
+    }
+    const strLength = parseInt(encodedList.substring(i, j));
+    console.log(strLength, j, i);
+    i = j + 1;
+    console.log(i);
+    j = i + strLength;
+    console.log(i, j, encodedList.substring(i, j));
+    decodedList.push(encodedList.substring(i, j));
+    i = j;
+  }
+  return decodedList;
+}
+
+// const list = ["run", "asas", "pewidosjbkhf", "er", "dsmb", "iwpen"];
+const list = ["run", "asas"];
+const encodedList = encode(list);
+console.log(encodedList);
+// '6#runnnn4#asas12#pewidosjbkhf2#er4#dsmb5#iwpen'
+
+const decodedList = decode(encodedList);
+console.log(decodedList);
+console.log(
+  `Is list: ${list} equals to 
+  this list: ${decodedList}: 
+  ${list === decodedList}`
+);
