@@ -139,7 +139,7 @@ class SinglyLinkedList {
     return current;
   }
 
-  /** PSEUDOCODE for SETTING a value on an specific Node
+  /** PSEUDOCODE for SETTING a value on an specific index
     - This function should accept an index and a value
     - Use the get(i) to find the specific node 
     - If the node is not found, return false
@@ -208,6 +208,10 @@ class SinglyLinkedList {
     previousNode.next = removedNode.next;
     this.length--;
     return removedNode;
+  }
+
+  reverse() {
+    return this;
   }
 }
 

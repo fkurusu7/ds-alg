@@ -38,3 +38,6 @@ console.log(maxSubarraySum([1, 4, 3, 2, 5, 7, 8, 3], 2)); // => 15
 console.log(maxSubarraySum([1, 4, 3, 2, 5, 7, 8, 3], 3)); // => 20
 console.log(maxSubarraySum([2, 6, 9, 2, 1, 8, 5, 6, 3], 3)); // => 19
 console.log(maxSubarraySum([1, 4, 3], 4)); // => null
+
+console.log("*******************************");
+console.log("*********** ANAGRAM ***********");
