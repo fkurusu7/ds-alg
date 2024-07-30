@@ -1,0 +1,6 @@
+mark johanson  waffle iron  80  2
+mark johanson  blender  40  2
+mark johanson  knife  110  2
+nikita smith  waffle iron  70  6
+nikita smith  knife  20  3
+nikita smith  pot  90  1
