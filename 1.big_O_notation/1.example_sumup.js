@@ -12,7 +12,6 @@ function addUpToForLoop(n) {
 
 let t1 = performance.now();
 const sumForLoop1 = addUpToForLoop(10000000);
-sumForLoop1;
 let t2 = performance.now();
 
 console.log(GetTimeDifference(t1, t2));
