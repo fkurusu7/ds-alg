@@ -19,23 +19,26 @@ function removeElement(nums, val) {
   let k = 0;
 
   for (let i = 0; i < nums.length; i++) {
-    console.log("Nums: ", nums);
-    console.log("K: ", k, nums[k]);
-    console.log("I: ", i, nums[i]);
     if (nums[i] !== val) {
       nums[k] = nums[i];
-      console.log(nums);
-
       k++;
     }
-    console.log("K: ", k, nums[k]);
-    console.log("I: ", i, nums[i]);
-    console.log("K: ", k);
   }
+
   console.log(nums);
 
   return k;
 }
-
 console.log(removeElement([3, 2, 2, 3], 3));
-// console.log(removeElement([3, 1, 1, 2, 2, 3, 1, 1, 2, 3, 1, 1], 1));
+console.log(removeElement([3, 1, 1, 2, 2, 3, 1, 1, 2, 3, 1, 1], 1));
+console.log(removeElement([3, 1, 7, 6, 7, 7, 5, 2, 1, 7], 7));
+
+function removeElementEff(nums, val) {
+  while (nums.indexOf(val) >= 0) {
+    nums.splice(nums.indexOf(val, 0), 1);
+  }
+  return { length: nums.length, nums };
+}
+console.log(removeElementEff([3, 2, 2, 3], 3));
+console.log(removeElementEff([3, 1, 1, 2, 2, 3, 1, 1, 2, 3, 1, 1], 1));
+console.log(removeElementEff([3, 1, 7, 6, 7, 7, 5, 2, 1, 7], 7));
