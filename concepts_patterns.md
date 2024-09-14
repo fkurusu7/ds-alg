@@ -22,7 +22,7 @@
 
 ### Stack
 
-### Binary Trees / Binary Search
+### Binary Search
 
 ### Linked List
 

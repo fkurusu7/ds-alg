@@ -23,29 +23,7 @@
 
  */
 
-function canJump(nums) {
-  if (nums.length < 2) return true;
-  if (nums.length === 2) return false;
-  const lastIndex = nums.length - 1;
-
-  let jumpIndex = 1;
-  let outbounds = 0;
-  while (outbounds <= lastIndex) {
-    let currentIndex = nums[jumpIndex];
-
-    if (currentIndex === 0 || currentIndex > lastIndex) {
-      return false;
-    }
-    if (currentIndex === lastIndex) {
-      return true;
-    }
-
-    jumpIndex += currentIndex;
-    outbounds++;
-  }
-
-  return false;
-}
+function canJump(nums) {}
 
 console.log(canJump([2, 3, 1, 1, 4])); // ==> true
 console.log(canJump([0])); // ==> true
