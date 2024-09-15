@@ -1,0 +1,11 @@
+# DATA STRUCTURES
+
+## BASIC DS
+
+1. ARRAYS
+2. LINKED LISTS
+3. HASH MAPS aka HashTables || Dictionaries
+4. STACKS
+5. QUEUES
+6. TREES
+7. GRAPHS (hard one)
