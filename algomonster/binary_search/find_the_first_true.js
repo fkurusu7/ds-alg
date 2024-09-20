@@ -13,8 +13,9 @@ function findBoundary(arr) {
       left = mid + 1;
     }
   }
+
   return boundaryIndex;
 }
 
 console.log(findBoundary([false, false, false, true, true])); // 3
-console.log(findBoundary([false, false, true, true, true])); // 2
+// console.log(findBoundary([false, false, true, true, true])); // 2
