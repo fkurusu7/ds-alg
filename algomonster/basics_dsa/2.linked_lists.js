@@ -13,7 +13,58 @@ class Node {
   }
 }
 
-const a = new Node("A");
+class LinkedList {
+  constructor() {
+    this.head = null;
+  }
+
+  append(val) {
+    if (this.head === null) {
+      this.head = new Node(val);
+      return;
+    }
+    let curr = this.head;
+    // keep looping until hitting the tail
+    while (curr.next !== null) {
+      curr = curr.next;
+    }
+    curr.next = new Node(val);
+  }
+
+  print() {
+    let str = "";
+    let curr = this.head;
+    while (curr !== null) {
+      str += ` --> ${curr.val}`;
+      curr = curr.next;
+    }
+    console.log(str);
+  }
+
+  contains(target) {
+    let curr = this.head;
+    while (curr !== null) {
+      if (curr.val === target) return true;
+      curr = curr.next;
+    }
+
+    return false;
+  }
+
+  // append, print, contains... PUSH, POP, REMOVe, REMOVeALL
+}
+
+const list = new LinkedList();
+
+list.append("a");
+list.append("b");
+list.append("c");
+list.print();
+console.log(list.contains("a"));
+console.log(list.contains("ad"));
+
+/* 
+const a = new Node("A");'+ip0óñil
 const b = new Node("B");
 const c = new Node("C");
 const d = new Node("D");
@@ -59,3 +110,5 @@ const getLinkedListValuesRec = (head) => {
 
 console.log(getLinkedListValuesIte(a));
 console.log(getLinkedListValuesRec(a));
+ */
+987654;
