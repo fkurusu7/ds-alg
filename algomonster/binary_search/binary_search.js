@@ -14,15 +14,17 @@ function binarySearchIte(nums, target) {
 
   while (left <= right) {
     const mid = left + Math.floor((right - left) / 2);
-
+    // found target, return its index
     if (nums[mid] === target) return mid;
     else if (nums[mid] < target) {
+      // middle less than target, discard left half
       left = mid + 1;
     } else if (nums[mid] > target) {
+      // middle greater than target, discard right half
       right = mid - 1;
     }
   }
-
+  // didn't find target
   return -1;
 }
 
