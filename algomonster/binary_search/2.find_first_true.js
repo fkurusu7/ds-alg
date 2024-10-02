@@ -18,20 +18,20 @@ function findFirstTrue(booleanArray) {
 
   let left = 0;
   let right = booleanArray.length - 1;
-  let boundaryIndex = -1;
+  let firstTrueIndex = -1;
 
   while (left <= right) {
     const mid = left + Math.floor((right - left) / 2);
 
     if (booleanArray[mid]) {
-      boundaryIndex = mid;
+      firstTrueIndex = mid;
       right = mid - 1;
     } else {
       left = mid + 1;
     }
   }
 
-  return boundaryIndex;
+  return firstTrueIndex;
 }
 
 console.log(findFirstTrue([false, false, true, true, true])); // ==> 2
