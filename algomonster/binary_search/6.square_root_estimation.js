@@ -15,44 +15,32 @@
 function squareRoot(n) {
   if (n === 0) return 0;
 
-  let left = 0;
-  let right = n - 1;
-  let result = -1;
+  let left = 1;
+  let right = n;
+  let squaredResult = -1;
 
   while (left <= right) {
-    const mid = Math.floor(right + left / 2);
+    const mid = Math.floor((right + left) / 2);
 
     if (mid * mid === n) return mid;
 
     if (mid * mid > n) {
-      result = mid;
+      squaredResult = mid;
       right = mid - 1;
     } else {
       left = mid + 1;
     }
   }
-
-  return result - 1;
+  return squaredResult - 1;
+  /** if there is no element in the array whose square equals n,
+   * then we want to return the largest element that is
+   * smaller than the square root of n.
+   * subtract 1 from the index after we find
+   * the first true from binary search.
+   */
 }
 
 console.log(squareRoot(8)); // ==> 2
 console.log(squareRoot(9)); // ==> 3
 console.log(squareRoot(25)); // ==> 5
 console.log(squareRoot(0)); // ==> 0
-
-/*
-martes 17 
-miércoles 18
-jueves 19
-viernes 20 1hr
-sábado 21 
-domingo 22
-lunes 23 X
-martes 24
-miércoles 25
-jueves 26
-viernes 27 1hr
-sábado 28 1hr
-domingo 29 X
-lunes 30 X
-martes 1 X*/
