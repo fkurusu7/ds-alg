@@ -1,5 +1,6 @@
 /** DFS - Depth First Search
  *
+ * PENDING: More info about trees
  */
 
 /***************** PRE Order Traversal */
