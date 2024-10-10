@@ -42,4 +42,4 @@ console.log(findFirstOccurrence([1, 3, 3, 3, 3, 7, 10, 10, 10, 100], 3)); // ==>
 console.log(findFirstOccurrence([1, 3, 3, 3, 3, 7, 10, 10, 10, 100], 3)); // ==> 1
 console.log(findFirstOccurrence([1, 3, 3, 3, 3, 7, 10, 10, 10, 100], 6)); // ==> -1
 console.log(findFirstOccurrence([1, 3, 3, 3, 3, 7, 10, 10, 10, 100], 10)); // ==> -1
-console.log(findFirstOccurrence([2, 3, 5, 7, 11], 2)); // ==> 0
+console.log(findFirstOccurrence([2, 2, 5, 7, 11], 2)); // ==> 0

@@ -38,4 +38,4 @@ function findMinRotated(arr) {
 }
 
 console.log(findMinRotated([30, 40, 50, 5, 10, 20])); // ==> index 3
-// console.log(findMinRotated([3, 5, 7, 11, 13, 17, 19, 2])); // ==> index 7
+console.log(findMinRotated([3, 5, 7, 11, 13, 17, 19, 2])); // ==> index 7
