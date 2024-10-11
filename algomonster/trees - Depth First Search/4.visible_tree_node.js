@@ -56,13 +56,17 @@ Explanation
     we return the total number of visible nodes in the current subtree.
 
   2. Identify states
-    The definition of a "visible" node is that no node on the root-to-itself path (inclusive) has a strictly greater value. This means its value is greater or equal to any other node's value on the root-to-itself path. To determine whether the current node is visible or not, we need to know the max value from the root to it. We can carry this as a state as we traverse down the tree.
-
-  Having decided on the state and return value, we can now write the DFS.
-
-  Time Complexity: O(n)
-
-There are n nodes and n - 1 edges in a tree, so if we traverse each once, then the total traversal is O(2n - 1), which is O(n).
-
-Space Complexity: O(h) stack memory, where h is the height of the tree, which is O(n) in the worst case.
+    The definition of a "visible" node is that no node on the root-to-itself path (inclusive) 
+    has a strictly greater value. This means its value is greater or equal to any other node's 
+    value on the root-to-itself path. To determine whether the current node is visible or not, 
+    we need to know the max value from the root to it. We can carry this as a state as we 
+    traverse down the tree.
+    Having decided on the state and return value, we can now write the DFS.
+    
+    Time Complexity: O(n)
+    There are n nodes and n - 1 edges in a tree, so if we traverse each once, then the total 
+    traversal is O(2n - 1), which is O(n).
+    
+    Space Complexity: 
+    O(h) stack memory, where h is the height of the tree, which is O(n) in the worst case.
  */
