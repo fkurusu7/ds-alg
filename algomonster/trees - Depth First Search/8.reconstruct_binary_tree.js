@@ -44,6 +44,11 @@
 
   The same steps above are then repeated for the left and right subtrees
   respectively (recursively)
+
+  Complexity Analysis:
+  Time Complexity: O(n) because we visit each node exactly once and building 
+    the value-to-index map is also O(n).
+  Space Complexity: O(n) for the value-to-index map and recursive call stack.
  */
 
 class NodeTree {
