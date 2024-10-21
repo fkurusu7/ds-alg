@@ -27,3 +27,19 @@ function moveZeros(arr) {
 }
 
 console.log(moveZeros([1, 0, 2, 0, 0, 7]));
+
+function moveZeros(nums) {
+  // copy in-place
+  let i = 0;
+  for (const n of nums) {
+    if (n !== 0) {
+      nums[i] = n;
+      i++;
+    }
+  }
+
+  // fill rest with zeros
+  for (; i < nums.length; i++) {
+    nums[i] = 0;
+  }
+}
