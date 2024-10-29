@@ -18,12 +18,14 @@ function longestSubstringWithoutRepeatingCharacters(s) {
 
   for (let right = 0; right < s.length; right++) {
     const current = s[right];
+    console.log(current);
     counter.set(current, (counter.get(current) || 0) + 1);
     while (counter.get(current) > 1) {
       counter.set(current, counter.get(current) - 1);
       left++;
     }
-
+    console.log(counter);
+    console.log(right, left);
     longest = Math.max(longest, right - left + 1);
   }
 
@@ -31,4 +33,4 @@ function longestSubstringWithoutRepeatingCharacters(s) {
 }
 
 console.log(longestSubstringWithoutRepeatingCharacters("abccabcabcc")); // ==> 3
-console.log(longestSubstringWithoutRepeatingCharacters("aaaabaaa")); // ==> 2
+// console.log(longestSubstringWithoutRepeatingCharacters("aaaabaaa")); // ==> 2
