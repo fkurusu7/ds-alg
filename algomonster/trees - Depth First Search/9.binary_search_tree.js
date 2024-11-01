@@ -54,24 +54,25 @@ class Node {
 }
 
 function find(tree, val) {
-  if (tree === null) return false;
+  if (tree === null || !val) return false;
 
   if (tree.val === val) return true;
-  else if (tree.val < val) {
-    return find(tree.right, val);
-  } else {
+  if (tree.val > val) {
     return find(tree.left, val);
+  } else if (tree.val < val) {
+    return find(tree.right, val);
   }
 }
 
 function insert(tree, val) {
+  if (!val) return null;
   if (tree === null) return new Node(val);
-  if (tree.val < val) {
-    tree.right = insert(tree.right, val);
-  } else if (tree.val > val) {
-    tree.left = insert(tree.left, val);
-  }
 
+  if (tree.val > val) {
+    tree.left = insert(tree.left, val);
+  } else if (tree.val < val) {
+    tree.right = insert(tree.right, val);
+  }
   return tree;
 }
 
@@ -85,6 +86,7 @@ aTree.right.right = new Node(9);
 console.log(find(aTree, 2)); // ==> true
 console.log(find(aTree, 11)); // ==> false
 console.log(insert(aTree, 11));
+console.log(find(aTree, 11)); // ==> true
 /*
 Node {
   val: 5,

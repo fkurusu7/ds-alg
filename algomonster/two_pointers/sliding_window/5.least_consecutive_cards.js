@@ -24,11 +24,11 @@
 function leastConsecutiveCardsToMatch(cards) {
   let left = 0;
   const windowMap = new Map();
-  let shortest = cards.length + 1;
+  let shortest = cards.length;
 
   for (let right = 0; right < cards.length; ++right) {
     const current = cards[right];
-    windowMap.set(current, (windowMap.get(current) ?? 0) + 1);
+    windowMap.set(current, (windowMap.get(current) || 0) + 1);
 
     while (windowMap.get(current) === 2) {
       shortest = Math.min(shortest, right - left + 1);
@@ -47,10 +47,10 @@ function leastConsecutiveCardsToMatch(cards) {
         Map { 1: 1, 2: 0, 3: 2 } 
         Map { 1: 1, 2: 0, 3: 1 }
       */
-      ++left;
+      left++;
     }
   }
-  return shortest !== cards.length + 1 ? shortest : -1;
+  return shortest !== cards.length ? shortest : -1;
 }
 
 // console.log(leastConsecutiveCardsToMatch([3, 4, 2, 3, 4, 7])); // ==> 4

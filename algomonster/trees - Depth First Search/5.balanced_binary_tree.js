@@ -39,20 +39,23 @@ rootUnbalanced.right.left.left = new Node(7);
 const rootBalanced = new Node(1);
 rootBalanced.left = new Node(2);
 rootBalanced.left.left = new Node(4);
-
 rootBalanced.right = new Node(3);
 rootBalanced.right.left = new Node(6);
 
-function isBalancedTree(node) {
+function dfsBalancedTree(node) {
   if (node === null) return 0;
 
-  let leftHeight = isBalancedTree(node.left);
-  let right = isBalancedTree(node.right);
+  const leftHeight = dfsBalancedTree(node.left);
+  const rightHeight = dfsBalancedTree(node.right);
 
-  if (leftHeight === -1 || right === -1) return -1;
-  if (Math.abs(leftHeight - right) > 1) return -1;
+  if (leftHeight === -1 || rightHeight === -1) return -1;
+  if (Math.abs(rightHeight - leftHeight) > 1) return -1;
 
-  return Math.abs(leftHeight + right) + 1;
+  return Math.max(leftHeight, rightHeight) + 1;
+}
+
+function isBalancedTree(node) {
+  return dfsBalancedTree(node) > 0;
 }
 
 console.log(isBalancedTree(rootUnbalanced));
@@ -76,25 +79,25 @@ Check each node from bottom to top:
 
 Nodes 8 and 7: These are leaf nodes, so they're balanced by definition.
 Node 4:
-Left subtree height (8) = 1
-Right subtree height (empty) = 0
-Difference = 1, so it's balanced.
+  Left subtree height (8) = 1
+  Right subtree height (empty) = 0
+  Difference = 1, so it's balanced.
 Node 6:
-Left subtree height (7) = 1
-Right subtree height (empty) = 0
-Difference = 1, so it's balanced.
+  Left subtree height (7) = 1
+  Right subtree height (empty) = 0
+  Difference = 1, so it's balanced.
 Node 2:
-Left subtree height (4 -> 8) = 2
-Right subtree height (empty) = 0
-Difference = 2, which is more than 1, so this node is unbalanced.
+  Left subtree height (4 -> 8) = 2
+  Right subtree height (empty) = 0
+  Difference = 2, which is more than 1, so this node is unbalanced.
 Node 3:
-Left subtree height (6 -> 7) = 2
-Right subtree height (empty) = 0
-Difference = 2, which is more than 1, so this node is unbalanced.
+  Left subtree height (6 -> 7) = 2
+  Right subtree height (empty) = 0
+  Difference = 2, which is more than 1, so this node is unbalanced.
 Root (1):
-Left subtree height (2 -> 4 -> 8) = 3
-Right subtree height (3 -> 6 -> 7) = 3
-Difference = 0, so this node is balanced.
+  Left subtree height (2 -> 4 -> 8) = 3
+  Right subtree height (3 -> 6 -> 7) = 3
+  Difference = 0, so this node is balanced.
 
 ------------------------------------------------------------------------------
 Even though the root node is balanced, the tree as a whole is considered 

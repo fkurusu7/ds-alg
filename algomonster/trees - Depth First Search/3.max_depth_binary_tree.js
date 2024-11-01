@@ -10,6 +10,7 @@
  * There are n nodes and n - 1 edges in a tree so if we traverse
  * each once then the total traversal is O(2n - 1) which is O(n).
  */
+
 class TreeNode {
   constructor(val, left = null, right = null) {
     this.val = val;
@@ -24,31 +25,26 @@ root.right = new TreeNode(20);
 root.right.left = new TreeNode(15);
 root.right.right = new TreeNode(7);
 
-export default Node;
-
 function getMaxDepth(node) {
   if (node === null) return 0;
-
   return Math.max(getMaxDepth(node.left), getMaxDepth(node.right)) + 1;
 }
-
-console.log(getMaxDepth(aTree));
+console.log(getMaxDepth(root));
 
 /** EXPLANATION
- * 
-    A
+    3
    / \
-  B   C
-     /
-    D
+  9   20
+     /  \
+    15   7
 
- * For leaf nodes B and D, the function will return 1 (0 + 1), as they have no children.
- * For node C, the function will return 2: max(0, 1) + 1. 
- *  The 0 is from its non-existent right child, 1 is from D, and we add 1 for C itself.
- * For the root A, the function will return 3: max(1, 2) + 1. 1 is from B, 
- *  2 is from the C subtree, and we add 1 for A itself.
- * 
- * This "+1" ensures that at each level of recursion, we're accounting for the current 
- * node in our depth calculation, allowing us to accurately compute the total depth of 
- * the tree from the root to the deepest leaf.
+  For leaf nodes 9, 15 and 7, the function will return 1 (0 + 1), as they have no children.
+  For node 20, the function will return 2: max(1, 1) + 1. 
+    1 is from 15 and 1 is from 7, and we add 1 for 20 itself.
+  For the root 3, the function will return 3: max(1, 2) + 1. 1 is from 9, 
+   2 is from the 20 subtree, and we add 1 for 3 itself.
+  
+  This "+1" ensures that at each level of recursion, we're accounting for the current 
+  node in our depth calculation, allowing us to accurately compute the total depth of 
+  the tree from the root to the deepest leaf.
  */
