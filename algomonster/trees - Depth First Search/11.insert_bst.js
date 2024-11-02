@@ -9,7 +9,7 @@
   the structure of the original BST. 
 */
 
-class Treenode {
+class TreeNode {
   constructor(val, left = null, right = null) {
     this.val = val;
     this.left = left;
@@ -17,14 +17,14 @@ class Treenode {
   }
 }
 
-const aTree = new Treenode(7);
-aTree.left = new Treenode(3);
-aTree.left.right = new Treenode(4);
-// aTree.left.right.right = new Treenode(5); <== TO INSERT
-aTree.right = new Treenode(9);
-aTree.right.left = new Treenode(8);
-aTree.right.right = new Treenode(10);
-// aTree.right.right.right = new Treenode(11); <== TO INSERT
+const aTree = new TreeNode(7);
+aTree.left = new TreeNode(3);
+aTree.left.right = new TreeNode(4);
+// aTree.left.right.right = new TreeNode(5); <== TO INSERT
+aTree.right = new TreeNode(9);
+aTree.right.left = new TreeNode(8);
+aTree.right.right = new TreeNode(10);
+// aTree.right.right.right = new TreeNode(11); <== TO INSERT
 
 /*
             7
@@ -38,7 +38,7 @@ aTree.right.right = new Treenode(10);
 console.log(aTree);
 
 function insertIntoBST(tree, val) {
-  if (tree === null) return new Treenode(val);
+  if (tree === null) return new TreeNode(val);
 
   if (tree.val > val) {
     tree.left = insertIntoBST(tree.left, val);
@@ -54,24 +54,24 @@ newATree = insertIntoBST(aTree, 11);
 console.log(newATree);
 
 /**
-Treenode {
+TreeNode {
   val: 7,
-  left: Treenode {
+  left: TreeNode {
     val: 3,
     left: null,
-    right: Treenode {
+    right: TreeNode {
       val: 4,
       left: null,
-      right: Treenode { val: 5, left: null, right: null }    <== INSERTED
+      right: TreeNode { val: 5, left: null, right: null }    <== INSERTED
     }
   },
-  right: Treenode {
+  right: TreeNode {
     val: 9,
-    left: Treenode { val: 8, left: null, right: null },
-    right: Treenode {
+    left: TreeNode { val: 8, left: null, right: null },
+    right: TreeNode {
       val: 10,
       left: null,
-      right: Treenode { val: 11, left: null, right: null }    <== INSERTED
+      right: TreeNode { val: 11, left: null, right: null }    <== INSERTED
     }
   }
 }
