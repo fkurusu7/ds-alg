@@ -26,9 +26,10 @@ console.log(getFactorial(6)); // 720
 console.log(getFactorial(8)); // 40320
 
 /** Recursion and Stack
-  A computer's internal stack is called "call stack" and the data it pushes 
-  onto a call stack are called "stack frames". Strictly speaking, stack frames 
-  on a call stack represent the function you are calling and its arguments. 
+
+  A computer's internal stack is called "CALL STACK" and the data it pushes 
+  onto a call stack are called "STACK FRAMES". Strictly speaking, stack frames 
+  on a call stack represent the function you are calling and its arguments.
 
   So, How does the computer accomplish such a feat as calling a function itself? 
   The answer is quite simple - it uses a stack behind the scene to keep track 
@@ -60,5 +61,5 @@ function factorialStack(num) {
 }
 
 console.log(factorialStack(4)); // 24
-console.log(factorialStack(6)); // 24
-console.log(factorialStack(8)); // 24
+console.log(factorialStack(6)); // 720
+console.log(factorialStack(8)); // 40320
