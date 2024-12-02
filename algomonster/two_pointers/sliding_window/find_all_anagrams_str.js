@@ -128,3 +128,39 @@ console.log(findAnagrams("cbaebabacd", "abc")); // English [0, 6]
 console.log(findAnagrams("açãobabacd", "açã")); // Portuguese with special characters  [0]
 console.log(findAnagrams("こんにちは世界", "にち")); // Japanese  [2]
 console.log(findAnagrams("café", "acf")); // Mixed character set  [0]
+
+/** Explanation using a Map()
+
+  Dynamic Frequency Mapping:
+    Replaced fixed-size array with Map
+    Supports any character, not just a-z
+    Dynamically grows based on unique characters in the string
+
+  Works with:
+    Unicode characters
+    Special characters
+    Different alphabets
+    Emojis
+    Mixed character sets
+
+  Handling Frequency:
+    Uses (windowFreq.get(char) || 0) + 1 to safely increment
+    Handles characters not previously seen
+    Removes characters with zero count from the Map
+
+  Comparison Function:
+    mapsEqual() checks both size and individual character counts. More flexible than array comparison
+
+  Performance Considerations
+
+  Time Complexity: Still O(n)
+  Space Complexity: O(k), where k is the number of unique characters
+
+  Practical Examples
+
+  "açãobabacd" with "açã" works correctly
+  "こんにちは世界" with "にち" handles Japanese characters
+  "café" with "acf" manages mixed character sets
+
+  This approach solves the limitation of the previous implementation by using a dynamic, character-agnostic frequency mapping.
+ */
